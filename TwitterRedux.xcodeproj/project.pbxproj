@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		4830C33B1EA9E4E800AAE271 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830C33A1EA9E4E800AAE271 /* AppDelegate.swift */; };
-		4830C33D1EA9E4E800AAE271 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830C33C1EA9E4E800AAE271 /* ViewController.swift */; };
 		4830C3401EA9E4E800AAE271 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4830C33E1EA9E4E800AAE271 /* Main.storyboard */; };
 		4830C3421EA9E4E800AAE271 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4830C3411EA9E4E800AAE271 /* Assets.xcassets */; };
 		4830C3451EA9E4E800AAE271 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4830C3431EA9E4E800AAE271 /* LaunchScreen.storyboard */; };
+		4830C34D1EA9E57C00AAE271 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830C34C1EA9E57C00AAE271 /* ProfileViewController.swift */; };
+		4830C3501EA9E59F00AAE271 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830C34F1EA9E59F00AAE271 /* HomeViewController.swift */; };
+		4830C3521EA9E5AA00AAE271 /* MentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830C3511EA9E5AA00AAE271 /* MentionsViewController.swift */; };
+		4830C3541EA9E74600AAE271 /* MenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830C3531EA9E74600AAE271 /* MenViewController.swift */; };
+		4830C3561EA9E7D800AAE271 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830C3551EA9E7D800AAE271 /* HamburgerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4830C3371EA9E4E800AAE271 /* TwitterRedux.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterRedux.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4830C33A1EA9E4E800AAE271 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4830C33C1EA9E4E800AAE271 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4830C33F1EA9E4E800AAE271 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4830C3411EA9E4E800AAE271 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4830C3441EA9E4E800AAE271 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4830C3461EA9E4E800AAE271 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4830C34C1EA9E57C00AAE271 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4830C34F1EA9E59F00AAE271 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4830C3511EA9E5AA00AAE271 /* MentionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsViewController.swift; sourceTree = "<group>"; };
+		4830C3531EA9E74600AAE271 /* MenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenViewController.swift; sourceTree = "<group>"; };
+		4830C3551EA9E7D800AAE271 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,26 @@
 		4830C3391EA9E4E800AAE271 /* TwitterRedux */ = {
 			isa = PBXGroup;
 			children = (
+				4830C34E1EA9E58400AAE271 /* View Controllers */,
 				4830C33A1EA9E4E800AAE271 /* AppDelegate.swift */,
-				4830C33C1EA9E4E800AAE271 /* ViewController.swift */,
 				4830C33E1EA9E4E800AAE271 /* Main.storyboard */,
 				4830C3411EA9E4E800AAE271 /* Assets.xcassets */,
 				4830C3431EA9E4E800AAE271 /* LaunchScreen.storyboard */,
 				4830C3461EA9E4E800AAE271 /* Info.plist */,
 			);
 			path = TwitterRedux;
+			sourceTree = "<group>";
+		};
+		4830C34E1EA9E58400AAE271 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4830C34C1EA9E57C00AAE271 /* ProfileViewController.swift */,
+				4830C34F1EA9E59F00AAE271 /* HomeViewController.swift */,
+				4830C3511EA9E5AA00AAE271 /* MentionsViewController.swift */,
+				4830C3531EA9E74600AAE271 /* MenViewController.swift */,
+				4830C3551EA9E7D800AAE271 /* HamburgerViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +156,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4830C33D1EA9E4E800AAE271 /* ViewController.swift in Sources */,
+				4830C3561EA9E7D800AAE271 /* HamburgerViewController.swift in Sources */,
+				4830C34D1EA9E57C00AAE271 /* ProfileViewController.swift in Sources */,
 				4830C33B1EA9E4E800AAE271 /* AppDelegate.swift in Sources */,
+				4830C3501EA9E59F00AAE271 /* HomeViewController.swift in Sources */,
+				4830C3541EA9E74600AAE271 /* MenViewController.swift in Sources */,
+				4830C3521EA9E5AA00AAE271 /* MentionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
