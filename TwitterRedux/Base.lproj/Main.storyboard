@@ -24,18 +24,37 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UQY-Cs-Bof">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MWb-4q-JFH">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWb-4q-JFH">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2BD-Gr-hN0" appends="YES" id="gXZ-OW-GG9"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MWb-4q-JFH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="9M2-7I-95H"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MWb-4q-JFH" secondAttribute="bottom" id="RK8-XJ-OBz"/>
+                            <constraint firstItem="MWb-4q-JFH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eYb-ki-4f4"/>
+                            <constraint firstItem="MWb-4q-JFH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="vPX-Gy-ZlK"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="MWb-4q-JFH" id="Ehf-bu-zXm"/>
+                        <outlet property="hamburgerMenuView" destination="UQY-Cs-Bof" id="mET-oJ-CIo"/>
+                        <outlet property="hamburgurMenuLeftConstraint" destination="eYb-ki-4f4" id="a8V-n9-3cV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="2BD-Gr-hN0">
+                    <connections>
+                        <action selector="onPan:" destination="BYZ-38-t0r" id="A0k-kc-BSw"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1228" y="116.49175412293854"/>
         </scene>
@@ -81,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iA8-Bv-4fu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="125.59999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="638" y="150"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="fOl-Ic-XOJ">
@@ -94,7 +113,7 @@
                     <view key="view" contentMode="scaleToFill" id="89n-ys-5kL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="5hy-f7-sHt"/>
                 </viewController>
@@ -113,7 +132,7 @@
                     <view key="view" contentMode="scaleToFill" id="FkF-ga-4YB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="vk1-vB-APs"/>
                 </viewController>
@@ -132,7 +151,7 @@
                     <view key="view" contentMode="scaleToFill" id="fwT-b4-g3w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="4Lx-Bf-hD3"/>
                 </viewController>

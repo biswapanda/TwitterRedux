@@ -10,26 +10,41 @@ import UIKit
 
 class HamburgerViewController: UIViewController {
 
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var hamburgerMenuView: UIView!
+    @IBOutlet weak var hamburgurMenuLeftConstraint: NSLayoutConstraint!
+    
+    var kOriginalHamburgurMenuLeftConstraint :CGFloat!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func onPan(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+        switch sender.state {
+        case .began:
+            kOriginalHamburgurMenuLeftConstraint = hamburgurMenuLeftConstraint.constant
+        case .changed:
+            hamburgurMenuLeftConstraint.constant = kOriginalHamburgurMenuLeftConstraint + translation.x
+        case .ended:
+            var kFinalHamburgurMenuLeftConstraint: CGFloat
+            if sender.velocity(in: view).x > 0 {
+                kFinalHamburgurMenuLeftConstraint = view.frame.size.width - 100
+            } else {
+                kFinalHamburgurMenuLeftConstraint = 0
+            }
+            UIView.animate(withDuration: 2.5, animations: {
+                self.hamburgurMenuLeftConstraint.constant = kFinalHamburgurMenuLeftConstraint
+                self.view.layoutIfNeeded()
+            })
+        default:
+            print ("ignore pan state")
+        }
     }
-    */
 
 }
