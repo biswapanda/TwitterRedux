@@ -59,7 +59,7 @@ class HamburgerViewController: UIViewController {
         case .ended:
             var kFinalHamburgurMenuLeftConstraint: CGFloat
             if sender.velocity(in: view).x > 0 {
-                kFinalHamburgurMenuLeftConstraint = view.frame.size.width - 100
+                kFinalHamburgurMenuLeftConstraint = view.frame.size.width - 200
             } else {
                 kFinalHamburgurMenuLeftConstraint = 0
             }
