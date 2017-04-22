@@ -16,6 +16,7 @@
 		4830C3521EA9E5AA00AAE271 /* MentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830C3511EA9E5AA00AAE271 /* MentionsViewController.swift */; };
 		4830C3561EA9E7D800AAE271 /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830C3551EA9E7D800AAE271 /* HamburgerViewController.swift */; };
 		4830C3581EA9E88000AAE271 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830C3571EA9E88000AAE271 /* MenuViewController.swift */; };
+		4830C35B1EA9F34200AAE271 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830C35A1EA9F34200AAE271 /* MenuTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4830C3511EA9E5AA00AAE271 /* MentionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsViewController.swift; sourceTree = "<group>"; };
 		4830C3551EA9E7D800AAE271 /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		4830C3571EA9E88000AAE271 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		4830C35A1EA9F34200AAE271 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		4830C3391EA9E4E800AAE271 /* TwitterRedux */ = {
 			isa = PBXGroup;
 			children = (
+				4830C3591EA9F32A00AAE271 /* View */,
 				4830C34E1EA9E58400AAE271 /* View Controllers */,
 				4830C33A1EA9E4E800AAE271 /* AppDelegate.swift */,
 				4830C33E1EA9E4E800AAE271 /* Main.storyboard */,
@@ -82,6 +85,14 @@
 				4830C3571EA9E88000AAE271 /* MenuViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4830C3591EA9F32A00AAE271 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4830C35A1EA9F34200AAE271 /* MenuTableViewCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +169,7 @@
 			files = (
 				4830C3561EA9E7D800AAE271 /* HamburgerViewController.swift in Sources */,
 				4830C3581EA9E88000AAE271 /* MenuViewController.swift in Sources */,
+				4830C35B1EA9F34200AAE271 /* MenuTableViewCell.swift in Sources */,
 				4830C34D1EA9E57C00AAE271 /* ProfileViewController.swift in Sources */,
 				4830C33B1EA9E4E800AAE271 /* AppDelegate.swift in Sources */,
 				4830C3501EA9E59F00AAE271 /* HomeViewController.swift in Sources */,

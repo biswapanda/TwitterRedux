@@ -16,6 +16,13 @@ class HamburgerViewController: UIViewController {
     
     var kOriginalHamburgurMenuLeftConstraint :CGFloat!
     
+    var menuViewController: MenuViewController! {
+        didSet {
+            view.layoutIfNeeded()
+            hamburgerMenuView.addSubview(menuViewController.view)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -38,7 +45,7 @@ class HamburgerViewController: UIViewController {
             } else {
                 kFinalHamburgurMenuLeftConstraint = 0
             }
-            UIView.animate(withDuration: 2.5, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 self.hamburgurMenuLeftConstraint.constant = kFinalHamburgurMenuLeftConstraint
                 self.view.layoutIfNeeded()
             })
