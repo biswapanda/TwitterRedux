@@ -17,8 +17,8 @@ class HamburgerViewController: UIViewController {
     var kOriginalHamburgurMenuLeftConstraint :CGFloat!
     var viewControllers: [UIViewController] = []
     var viewControllersConfig: [[String: String]] = [
-        ["menuText": "Home", "viewControllerID": "HomeNavigationViewControlller"],
         ["menuText": "Profile", "viewControllerID": "ProfileNavigationViewControlller"],
+        ["menuText": "TimeLine", "viewControllerID": "HomeNavigationViewControlller"],
         ["menuText": "Mentions", "viewControllerID": "MentionsNavigationViewControlller"],
     ]
     
