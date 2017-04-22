@@ -15,6 +15,13 @@ class HamburgerViewController: UIViewController {
     @IBOutlet weak var hamburgurMenuLeftConstraint: NSLayoutConstraint!
     
     var kOriginalHamburgurMenuLeftConstraint :CGFloat!
+    var viewControllers: [UIViewController] = []
+    var viewControllersConfig: [[String: String]] = [
+        ["menuText": "Home", "viewControllerID": "HomeNavigationViewControlller"],
+        ["menuText": "Profile", "viewControllerID": "ProfileNavigationViewControlller"],
+        ["menuText": "Mentions", "viewControllerID": "MentionsNavigationViewControlller"],
+    ]
+    
     
     var menuViewController: MenuViewController! {
         didSet {
@@ -23,8 +30,19 @@ class HamburgerViewController: UIViewController {
         }
     }
     
+    var contentViewController: UIViewController! {
+        didSet {
+            contentView.addSubview(contentViewController.view)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        for vcConfig in viewControllersConfig {
+            viewControllers.append(storyBoard.instantiateViewController(
+                    withIdentifier: vcConfig["viewControllerID"]!))
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -11,6 +11,8 @@ import UIKit
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var menuTableView: UITableView!
+    var hamburgerMenuViewController: HamburgerViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         menuTableView.dataSource = self
@@ -23,7 +25,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = menuTableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell", for: indexPath) as! MenuTableViewCell
-        cell.menuLabel.text = ["A", "B", "C"][indexPath.row];
+        cell.menuLabel.text = hamburgerMenuViewController.viewControllersConfig[indexPath.row]["menuText"]
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -33,5 +36,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        hamburgerMenuViewController.contentViewController = hamburgerMenuViewController.viewControllers[indexPath.row]
     }
 }

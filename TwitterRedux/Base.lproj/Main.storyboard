@@ -56,7 +56,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1228" y="116.49175412293854"/>
+            <point key="canvasLocation" x="-342" y="150"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="sx8-Zp-0gr">
