@@ -179,6 +179,7 @@
 				TargetAttributes = {
 					4830C3361EA9E4E800AAE271 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = B478GJM64P;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -400,6 +401,7 @@
 			baseConfigurationReference = A41D25807AE26B83635EF7BD /* Pods-TwitterRedux.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B478GJM64P;
 				INFOPLIST_FILE = TwitterRedux/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.TwitterRedux;
@@ -413,6 +415,7 @@
 			baseConfigurationReference = EA02344AB164DC22AEA44423 /* Pods-TwitterRedux.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B478GJM64P;
 				INFOPLIST_FILE = TwitterRedux/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.TwitterRedux;

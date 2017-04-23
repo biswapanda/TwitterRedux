@@ -60,6 +60,9 @@ class HamburgerViewController: UIViewController {
             print("\(String(describing: error))")
         }
         
+        if User.currentUser == nil {
+            return
+        }
         TwitterClient.sharedInstance.userTimeline(userID: User.currentUser!.userID!, success: { (tweets: [Tweet]) in
             let tnvc = self.viewControllers[0] as! UINavigationController
             let tvc = tnvc.topViewController as! TweetsViewController
