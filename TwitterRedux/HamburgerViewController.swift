@@ -18,8 +18,8 @@ class HamburgerViewController: UIViewController {
     var viewControllers: [UIViewController] = []
     var viewControllersConfig: [[String: String]] = [
         ["menuText": "Profile", "viewControllerID": "ProfileNavigationViewControlller"],
-        ["menuText": "TimeLine", "viewControllerID": "HomeNavigationViewControlller"],
-        ["menuText": "Mentions", "viewControllerID": "MentionsNavigationViewControlller"],
+        ["menuText": "TimeLine", "viewControllerID": "TweetsNavigationViewController"],
+        ["menuText": "Mentions", "viewControllerID": "TweetsNavigationViewController"],
     ]
     
     
@@ -42,6 +42,21 @@ class HamburgerViewController: UIViewController {
         for vcConfig in viewControllersConfig {
             viewControllers.append(storyBoard.instantiateViewController(
                     withIdentifier: vcConfig["viewControllerID"]!))
+        }
+        TwitterClient.sharedInstance.mentions(success: { (tweets: [Tweet]) in
+            let tnvc = self.viewControllers[2] as! UINavigationController
+            let tvc = tnvc.topViewController as! TweetsViewController
+            tvc.tweets = tweets
+        }) { (error: Error?) in
+            print("\(String(describing: error))")
+        }
+        
+        TwitterClient.sharedInstance.homeTimeLine(success: { (tweets: [Tweet]) in
+            let tnvc = self.viewControllers[1] as! UINavigationController
+            let tvc = tnvc.topViewController as! TweetsViewController
+            tvc.tweets = tweets
+        }) { (error: Error?) in
+            print("\(String(describing: error))")
         }
     }
 
