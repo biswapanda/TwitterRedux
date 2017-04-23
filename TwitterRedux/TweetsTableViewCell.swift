@@ -18,6 +18,7 @@ class TweetsTableViewCell: UITableViewCell {
     @IBOutlet weak var retweetCountLabel: UILabel!
     @IBOutlet weak var favoriteCountLabel: UILabel!
     
+    
     weak var tweet: Tweet! {
         didSet {
             tweetLabel.text = tweet.text
@@ -31,11 +32,13 @@ class TweetsTableViewCell: UITableViewCell {
             if let profileImageURL = tweet.authorProfileURL {
                 profileImageView.setImageWith(profileImageURL)
             }
+            retweetCountLabel.text = "0"
             if let retweetCount = tweet.retweetCount {
                 if retweetCount > 0 {
                     retweetCountLabel.text = "\(retweetCount)"
                 }
             }
+            favoriteCountLabel.text = "0"
             if let favoriteCount = tweet.favoriteCount {
                 if favoriteCount > 0 {
                     favoriteCountLabel.text = "\(favoriteCount)"
