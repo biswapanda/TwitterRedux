@@ -17,13 +17,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if User.currentUser == nil {
+            print("Guest user")
+            let client = TwitterClient.sharedInstance
+            client.login(success: { (user: User) in
+                User.currentUser = user
+                print("login success..")
+                self.showHamburgerViewController()
+            }) { (error: Error?) in
+                let errorText = error?.localizedDescription ?? "unknow error"
+                print("Error: \(errorText)")
+            }
+
+        } else {
+            print("Logged-in user")
+            showHamburgerViewController()
+        }
+        return true
+    }
+    
+    func showHamburgerViewController() {
         let hamburgerMenuViewController = window!.rootViewController as! HamburgerViewController
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let menuViewController = storyBoard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
         hamburgerMenuViewController.menuViewController = menuViewController
         menuViewController.hamburgerMenuViewController = hamburgerMenuViewController
-        return true
     }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -46,7 +67,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        TwitterClient.sharedInstance.handleOpenURL(url: url)
+        return true
+    }
 
 }
 
