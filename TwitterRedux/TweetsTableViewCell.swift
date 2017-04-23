@@ -8,6 +8,12 @@
 
 import UIKit
 
+
+protocol TweetsTableViewCellDelegate: class  {
+    func onProfileImageTap(cell: TweetsTableViewCell) -> ()
+}
+
+
 class TweetsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var profileImageView: UIImageView!
@@ -18,6 +24,11 @@ class TweetsTableViewCell: UITableViewCell {
     @IBOutlet weak var retweetCountLabel: UILabel!
     @IBOutlet weak var favoriteCountLabel: UILabel!
     
+    var delegate: TweetsTableViewCellDelegate?
+    
+    @IBAction func onProfileImageTap(_ sender: UIButton) {
+        delegate?.onProfileImageTap(cell: self)
+    }
     
     weak var tweet: Tweet! {
         didSet {

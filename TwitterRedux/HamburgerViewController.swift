@@ -17,7 +17,7 @@ class HamburgerViewController: UIViewController {
     var kOriginalHamburgurMenuLeftConstraint :CGFloat!
     var viewControllers: [UIViewController] = []
     var viewControllersConfig: [[String: String]] = [
-        ["menuText": "Profile", "viewControllerID": "ProfileNavigationViewControlller"],
+        ["menuText": "Profile", "viewControllerID": "TweetsNavigationViewController"],
         ["menuText": "TimeLine", "viewControllerID": "TweetsNavigationViewController"],
         ["menuText": "Mentions", "viewControllerID": "TweetsNavigationViewController"],
     ]
@@ -43,6 +43,7 @@ class HamburgerViewController: UIViewController {
             viewControllers.append(storyBoard.instantiateViewController(
                     withIdentifier: vcConfig["viewControllerID"]!))
         }
+        self.contentViewController = self.viewControllers[0] as! UINavigationController
         TwitterClient.sharedInstance.mentions(success: { (tweets: [Tweet]) in
             let tnvc = self.viewControllers[2] as! UINavigationController
             let tvc = tnvc.topViewController as! TweetsViewController
@@ -53,6 +54,14 @@ class HamburgerViewController: UIViewController {
         
         TwitterClient.sharedInstance.homeTimeLine(success: { (tweets: [Tweet]) in
             let tnvc = self.viewControllers[1] as! UINavigationController
+            let tvc = tnvc.topViewController as! TweetsViewController
+            tvc.tweets = tweets
+        }) { (error: Error?) in
+            print("\(String(describing: error))")
+        }
+        
+        TwitterClient.sharedInstance.userTimeline(userID: User.currentUser!.userID!, success: { (tweets: [Tweet]) in
+            let tnvc = self.viewControllers[0] as! UINavigationController
             let tvc = tnvc.topViewController as! TweetsViewController
             tvc.tweets = tweets
         }) { (error: Error?) in

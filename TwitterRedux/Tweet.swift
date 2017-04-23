@@ -17,13 +17,18 @@ class Tweet: NSObject {
     var retweetCount: Int!
     var favoriteCount: Int!
     var timestamp: Date?
+    var userId: String?
+    
+    var _tweetDictionary: NSDictionary
     
     init(tweetDictionary: NSDictionary) {
+        _tweetDictionary = tweetDictionary
         text = tweetDictionary["text"] as? String
         idStr = tweetDictionary["id_str"] as? String
         retweetCount = tweetDictionary["retweet_count"] as? Int ?? 0
         favoriteCount = tweetDictionary["favorite_count"] as? Int ?? 0
         if let author = tweetDictionary["user"] as? NSDictionary {
+            userId = author["id_str"] as? String
             authorScreenName = author["screen_name"] as? String
             authorName = author["name"] as? String
             if let url = author["profile_image_url"] as? String {
@@ -36,6 +41,7 @@ class Tweet: NSObject {
             timestamp = formatter.date(from: createdAt)
         }
     }
+
     
     static func fromDictionaries(dictionaries: [NSDictionary]) -> [Tweet] {
         var tweets: [Tweet] = []

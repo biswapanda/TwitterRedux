@@ -64,6 +64,15 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     
+    func userTimeline(userID: String, success: @escaping ([Tweet]) -> (), error: @escaping (Error?) -> ()) {
+        get("1.1/statuses/user_timeline.json?user_id=\(userID)", parameters: nil, progress: nil,
+            success: { (task:URLSessionDataTask, response: Any?) in
+                let tweets = Tweet.fromDictionaries(dictionaries: response as! [NSDictionary])
+                success(tweets)
+        }) { (task: URLSessionDataTask?, errorMsg: Error) in
+            error(errorMsg)
+        }
+    }
 
     func mentions(success: @escaping ([Tweet]) -> (), error: @escaping (Error?) -> ()) {
         get("1.1/statuses/mentions_timeline.json", parameters: nil, progress: nil,

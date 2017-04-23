@@ -13,6 +13,7 @@ class User: NSObject {
     var screenName: String?
     var profileURL: URL?
     var tagline: String?
+    var userID: String?
     
     static var _currentUser: User?
     static var currentUserKeyName = "currentUser"
@@ -21,6 +22,7 @@ class User: NSObject {
     
     init(userDictionary: NSDictionary) {
         self.dictionary = userDictionary
+        userID = userDictionary["id_str"] as? String
         name = userDictionary["name"] as? String
         screenName = userDictionary["screen_name"] as? String
         tagline = userDictionary["description"] as? String
