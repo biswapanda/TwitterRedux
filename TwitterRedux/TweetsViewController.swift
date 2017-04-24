@@ -62,6 +62,12 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tweetsTableView.dataSource = self
         tweetsTableView.estimatedRowHeight = 120
         tweetsTableView.rowHeight = UITableViewAutomaticDimension
+        if user != nil {
+            tweetsTableView.tableHeaderView = profileView
+        } else {
+            profileView.removeFromSuperview()
+        }
+        view.layoutIfNeeded()
     }
 
     override func didReceiveMemoryWarning() {

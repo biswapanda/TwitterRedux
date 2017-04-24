@@ -44,7 +44,6 @@ class HamburgerViewController: UIViewController {
             viewControllers.append(storyBoard.instantiateViewController(
                     withIdentifier: vcConfig["viewControllerID"]!))
         }
-        self.contentViewController = self.viewControllers[0] as! UINavigationController
         TwitterClient.sharedInstance.mentions(success: { (tweets: [Tweet]) in
             let tnvc = self.viewControllers[2] as! UINavigationController
             let tvc = tnvc.topViewController as! TweetsViewController
@@ -60,17 +59,22 @@ class HamburgerViewController: UIViewController {
         }) { (error: Error?) in
             print("\(String(describing: error))")
         }
-        
         if User.currentUser == nil {
+            self.contentViewController = self.viewControllers[0] as! UINavigationController
             return
         }
-        TwitterClient.sharedInstance.userTimeline(userID: User.currentUser!.userID!, success: { (tweets: [Tweet]) in
+        TwitterClient.sharedInstance.userTimeline(userID: User.currentUser!.userID!,
+                                                  success: { (tweets: [Tweet]) in
             let tnvc = self.viewControllers[0] as! UINavigationController
             let tvc = tnvc.topViewController as! TweetsViewController
+            tvc.user = User.currentUser
             tvc.tweets = tweets
+            self.contentViewController = self.viewControllers[0] as! UINavigationController
+                                                    
         }) { (error: Error?) in
             print("\(String(describing: error))")
         }
+
     }
 
     override func didReceiveMemoryWarning() {

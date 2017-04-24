@@ -23,8 +23,10 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = menuTableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell", for: indexPath) as! MenuTableViewCell
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = menuTableView.dequeueReusableCell(withIdentifier: "MenuTableViewCell",
+                                                     for: indexPath) as! MenuTableViewCell
         cell.menuLabel.text = hamburgerMenuViewController.viewControllersConfig[indexPath.row]["menuText"]
         cell.selectionStyle = .none
         return cell

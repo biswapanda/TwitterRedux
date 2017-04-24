@@ -33,6 +33,9 @@ class User: NSObject {
         tweetsCount = userDictionary["statuses_count"] as? Int
         name = userDictionary["name"] as? String
         screenName = userDictionary["screen_name"] as? String
+        if screenName != nil {
+            screenName = "@\(screenName!)"
+        }
         tagline = userDictionary["description"] as? String
         if let profileImageUrl = userDictionary["profile_image_url_https"] as? String{
             profileURL = URL(string: profileImageUrl)
