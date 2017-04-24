@@ -1,6 +1,6 @@
-# Project 4 - *Name of App Here*
+# Project 4 - *TwitterRedux*
 
-Time spent: 2 hours spent in total
+Time spent: 12 hours spent in total
 
 ## User Stories
 
