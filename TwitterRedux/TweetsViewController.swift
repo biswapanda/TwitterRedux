@@ -7,11 +7,48 @@
 //
 
 import UIKit
+import AFNetworking
 
 class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TweetsTableViewCellDelegate {
-
-    @IBOutlet weak var tweetsTableView: UITableView!
     
+    @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var tweetsTableView: UITableView!
+    @IBOutlet weak var totalTweetCount: UILabel!
+    @IBOutlet weak var followingCountLabel: UILabel!
+    @IBOutlet weak var followerCountLabel: UILabel!
+    @IBOutlet weak var userProfileImage: UIImageView!
+    @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var userScreenLabel: UILabel!
+    @IBOutlet weak var coverImageView: UIImageView!
+    
+    var user: User? = nil {
+        didSet {
+            view.layoutIfNeeded()
+            if let user = user {
+                profileView.isHidden = false
+                userLabel.text = user.name
+                userScreenLabel.text = user.screenName
+                if let coverImageURL = user.coverImageURL {
+                    coverImageView.setImageWith(URL(string: coverImageURL)!)
+                }
+                if let followingCount = user.followingCount {
+                    followingCountLabel.text = "\(followingCount)"
+                }
+                if let followerCount = user.followersCount {
+                    followerCountLabel.text = "\(followerCount)"
+                }
+                if let totalTweets = user.tweetsCount {
+                    totalTweetCount.text = "\(totalTweets)"
+                }
+                if let profileURL = user.profileURL {
+                    userProfileImage.setImageWith(profileURL)
+                }
+            }
+            else {  
+                profileView.isHidden = true
+            }
+        }
+    }
     var tweets: [Tweet] = [] {
         didSet {
             view.layoutIfNeeded()
@@ -41,10 +78,14 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func onProfileImageTap(cell: TweetsTableViewCell) {
-        if let userID = cell.tweet.userId {
+        if let userDict = cell.tweet.userDict {
             let navController = self.parent as! UINavigationController
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyBoard.instantiateViewController(withIdentifier: "TweetsViewController") as! TweetsViewController
+            let vc = storyBoard.instantiateViewController(withIdentifier: "TweetsViewController")
+                as! TweetsViewController
+            let userID = userDict["id_str"] as! String
+            let _user = User(userDictionary: userDict)
+            vc.user = _user
             TwitterClient.sharedInstance.userTimeline(userID: userID, success: { (tweets: [Tweet]) in
                 vc.tweets = tweets
             }, error: { (error:Error?) in

@@ -17,7 +17,7 @@ class Tweet: NSObject {
     var retweetCount: Int!
     var favoriteCount: Int!
     var timestamp: Date?
-    var userId: String?
+    var userDict: NSDictionary?
     
     var _tweetDictionary: NSDictionary
     
@@ -28,7 +28,7 @@ class Tweet: NSObject {
         retweetCount = tweetDictionary["retweet_count"] as? Int ?? 0
         favoriteCount = tweetDictionary["favorite_count"] as? Int ?? 0
         if let author = tweetDictionary["user"] as? NSDictionary {
-            userId = author["id_str"] as? String
+            userDict = author
             authorScreenName = author["screen_name"] as? String
             authorName = author["name"] as? String
             if let url = author["profile_image_url"] as? String {

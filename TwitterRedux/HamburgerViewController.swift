@@ -33,6 +33,7 @@ class HamburgerViewController: UIViewController {
     var contentViewController: UIViewController! {
         didSet {
             contentView.addSubview(contentViewController.view)
+            snapHamburgerMenu(open: false)
         }
     }
     
@@ -76,6 +77,19 @@ class HamburgerViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    func snapHamburgerMenu(open: Bool) {
+        var kFinalHamburgurMenuLeftConstraint: CGFloat
+        if  open {
+            kFinalHamburgurMenuLeftConstraint = view.frame.size.width - 200
+        } else {
+            kFinalHamburgurMenuLeftConstraint = 0
+        }
+        UIView.animate(withDuration: 0.3, animations: {
+            self.hamburgurMenuLeftConstraint.constant = kFinalHamburgurMenuLeftConstraint
+            self.view.layoutIfNeeded()
+        })
+    }
+    
     @IBAction func onPan(_ sender: UIPanGestureRecognizer) {
         let translation = sender.translation(in: view)
         switch sender.state {
@@ -84,16 +98,7 @@ class HamburgerViewController: UIViewController {
         case .changed:
             hamburgurMenuLeftConstraint.constant = kOriginalHamburgurMenuLeftConstraint + translation.x
         case .ended:
-            var kFinalHamburgurMenuLeftConstraint: CGFloat
-            if sender.velocity(in: view).x > 0 {
-                kFinalHamburgurMenuLeftConstraint = view.frame.size.width - 200
-            } else {
-                kFinalHamburgurMenuLeftConstraint = 0
-            }
-            UIView.animate(withDuration: 0.3, animations: {
-                self.hamburgurMenuLeftConstraint.constant = kFinalHamburgurMenuLeftConstraint
-                self.view.layoutIfNeeded()
-            })
+            snapHamburgerMenu(open: sender.velocity(in: view).x > 0)
         default:
             print ("ignore pan state")
         }

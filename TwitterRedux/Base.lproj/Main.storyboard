@@ -163,8 +163,8 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biswa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E64-7q-8jg">
-                                            <rect key="frame" x="163" y="93" width="48.5" height="21"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <rect key="frame" x="169" y="86" width="38.5" height="16"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -204,12 +204,20 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@biswa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMa-sb-9bp">
+                                            <rect key="frame" x="165.5" y="103" width="44" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Eaq-u2-YYQ" firstAttribute="leading" secondItem="GLR-Ar-uVr" secondAttribute="leading" constant="144" id="033-xz-d6H"/>
                                         <constraint firstItem="JYH-mh-apT" firstAttribute="top" secondItem="GLR-Ar-uVr" secondAttribute="top" constant="135" id="9wa-dB-gRb"/>
+                                        <constraint firstItem="YMa-sb-9bp" firstAttribute="top" secondItem="E64-7q-8jg" secondAttribute="bottom" constant="1" id="AsY-Fb-5Mp"/>
                                         <constraint firstItem="3ku-aw-u30" firstAttribute="leading" secondItem="GLR-Ar-uVr" secondAttribute="leading" constant="144" id="ClI-VS-TpT"/>
                                         <constraint firstItem="JYH-mh-apT" firstAttribute="leading" secondItem="GLR-Ar-uVr" secondAttribute="leading" constant="23" id="HrU-qY-rwk"/>
+                                        <constraint firstItem="YMa-sb-9bp" firstAttribute="centerX" secondItem="GLR-Ar-uVr" secondAttribute="centerX" id="U1P-Al-7yP"/>
                                         <constraint firstItem="cyh-zM-c5S" firstAttribute="centerX" secondItem="GLR-Ar-uVr" secondAttribute="centerX" id="WLq-Mt-uLW"/>
                                         <constraint firstItem="afK-U5-bQg" firstAttribute="top" secondItem="JYH-mh-apT" secondAttribute="bottom" constant="1" id="aag-A6-3pJ"/>
                                         <constraint firstItem="3ku-aw-u30" firstAttribute="bottom" secondItem="JYH-mh-apT" secondAttribute="bottom" id="ajq-fi-PwT"/>
@@ -219,7 +227,7 @@
                                         <constraint firstItem="Eaq-u2-YYQ" firstAttribute="bottom" secondItem="afK-U5-bQg" secondAttribute="bottom" id="fOh-dC-5dW"/>
                                         <constraint firstItem="rWe-lk-ZSY" firstAttribute="leading" secondItem="GLR-Ar-uVr" secondAttribute="leading" constant="278" id="fpb-Qu-PCK"/>
                                         <constraint firstItem="LeW-2i-kLh" firstAttribute="bottom" secondItem="JYH-mh-apT" secondAttribute="bottom" id="iK6-pB-OKr"/>
-                                        <constraint firstItem="E64-7q-8jg" firstAttribute="top" secondItem="cyh-zM-c5S" secondAttribute="bottom" constant="8" id="jK9-gS-otA"/>
+                                        <constraint firstItem="E64-7q-8jg" firstAttribute="top" secondItem="cyh-zM-c5S" secondAttribute="bottom" constant="1" id="jK9-gS-otA"/>
                                         <constraint firstItem="E64-7q-8jg" firstAttribute="centerX" secondItem="GLR-Ar-uVr" secondAttribute="centerX" id="tzc-m6-yNm"/>
                                         <constraint firstItem="rWe-lk-ZSY" firstAttribute="bottom" secondItem="afK-U5-bQg" secondAttribute="bottom" id="uci-9D-B0n"/>
                                         <constraint firstItem="LeW-2i-kLh" firstAttribute="leading" secondItem="GLR-Ar-uVr" secondAttribute="leading" constant="278" id="xkp-sN-Zyb"/>
@@ -361,7 +369,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="kqR-p7-gbb"/>
                     <connections>
+                        <outlet property="coverImageView" destination="ikD-3K-BkX" id="whm-mG-9OS"/>
+                        <outlet property="followerCountLabel" destination="rWe-lk-ZSY" id="MN3-kJ-bEy"/>
+                        <outlet property="followingCountLabel" destination="Eaq-u2-YYQ" id="7SI-2k-yMW"/>
+                        <outlet property="profileView" destination="GLR-Ar-uVr" id="2Cy-Ko-CeL"/>
+                        <outlet property="totalTweetCount" destination="afK-U5-bQg" id="uQ6-iI-Y6B"/>
                         <outlet property="tweetsTableView" destination="Gxq-rc-bcg" id="QC2-Q8-UDf"/>
+                        <outlet property="userLabel" destination="E64-7q-8jg" id="fSl-xW-eKO"/>
+                        <outlet property="userProfileImage" destination="cyh-zM-c5S" id="vdX-Sd-SeQ"/>
+                        <outlet property="userScreenLabel" destination="YMa-sb-9bp" id="fCK-2y-mfw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7c4-PV-CcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
